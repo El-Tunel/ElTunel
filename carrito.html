@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tu Carrito</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛒 Tu Carrito</h1>
+  </header>
+
+  <div class="carrito-container">
+    <ul id="lista-carrito"></ul>
+    <p id="total-carrito">Total: 0 CUP</p>
+
+    <button onclick="enviarSMS()" class="sms-btn">📩 Enviar pedido por SMS</button>
+
+    <a href="index.html">← Seguir comprando</a>
+  </div>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const lista = document.getElementById("lista-carrito");
+    const total = document.getElementById("total-carrito");
+
+    function renderCarrito() {
+      lista.innerHTML = "";
+      let suma = 0;
+
+      carrito.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${item.nombre} - $${item.precio} CUP
+          <button onclick="eliminarDelCarrito(${index})" class="eliminar-btn">❌</button>
+        `;
+        lista.appendChild(li);
+        suma += item.precio;
+      });
+
+      total.textContent = `Total: ${suma} CUP`;
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderCarrito();
+    }
+
+    function enviarSMS() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      let mensaje = "Hola, quiero pedir:\n";
+      let total = 0;
+
+      carrito.forEach(item => {
+        mensaje += `- ${item.nombre} - $${item.precio} CUP\n`;
+        total += item.precio;
+      });
+
+      mensaje += `Total: $${total} CUP`;
+
+      const smsLink = `sms:+5350496485?body=${encodeURIComponent(mensaje)}`;
+      window.location.href = smsLink;
+    }
+
+    renderCarrito();
+  </script>
+</body>
+</html>

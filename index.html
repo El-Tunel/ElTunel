@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú del Día - Mi Restaurante</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🍴 El Tunel </h1>
+    <a href="carrito.html" class="cart-button" title="Ver carrito">🛒</a>
+  </header>
+
+  <div class="menu-container">
+    <!-- El menú se carga dinámicamente desde script.js -->
+  </div>
+
+  <!-- Panel de administración oculto -->
+  <div id="admin-panel" style="display: none;">
+    <h2>🔧 Administrar Menú</h2>
+    <input type="text" id="new-name" placeholder="Nombre del plato" />
+    <input type="text" id="new-desc" placeholder="Descripción" />
+    <input type="number" id="new-price" placeholder="Precio" />
+    <input type="text" id="new-img" placeholder="URL de imagen (ej: img/ropa-vieja.jpg)" />
+    <button onclick="addNewProduct()">Agregar al menú</button>
+
+    <h3>Eliminar platos</h3>
+    <ul id="delete-list"></ul>
+  </div>
+
+  <!-- Botón flotante para abrir el panel (oculto por defecto) -->
+  <button id="admin-toggle" title="Administrar menú">⚙️</button>
+
+  <!-- Campo para ingresar el código secreto -->
+  <div id="unlock-panel" style="text-align: center; margin: 2rem;">
+    <input type="password" id="admin-code" placeholder="Código de acceso" style="padding: 0.5rem; font-size: 1rem;" />
+    <button onclick="verificarCodigo()" style="padding: 0.5rem 1rem;">Entrar</button>
+  </div>
+
+  <footer>
+    Disponible solo hoy | Pedidos al 📞 +5350496485
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
