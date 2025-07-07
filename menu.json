@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ropa-vieja",
+    "nombre": "Ropa Vieja",
+    "desc": "Con arroz moro y plátanos maduros",
+    "precio": 350,
+    "img": "img/ropa-vieja.jpg"
+  },
+  {
+    "id": "tostones",
+    "nombre": "Tostones con Mojo",
+    "desc": "Crujientes y sabrosos",
+    "precio": 150,
+    "img": "img/tostones.jpg"
+  },
+  {
+    "id": "langostinos",
+    "nombre": "Langostinos en Kataifi",
+    "desc": "Con emulsión de mango y ají cachucha",
+    "precio": 480,
+    "img": "img/langostinos.jpg"
+  },
+  {
+    "id": "flan-coco",
+    "nombre": "Flan de Coco",
+    "desc": "Con caramelo de ron y ralladura de limón",
+    "precio": 120,
+    "img": "img/flan-coco.jpg"
+  }
+]
